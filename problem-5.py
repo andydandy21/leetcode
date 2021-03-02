@@ -9,7 +9,6 @@ class Solution:
         else:
             for x in range(len(s),-1,-1): 
                 if len(solution)>x: break
-                mystring = 'ab'
                 for y in range(x): 
                     mystring = s[y:x]
                     if mystring == mystring[::-1]: break
