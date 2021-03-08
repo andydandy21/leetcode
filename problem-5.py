@@ -14,3 +14,15 @@ class Solution:
                     if mystring == mystring[::-1]: break
                 solution = mystring if len(mystring)>=len(solution) else solution
             return solution
+
+
+# Recursive Solution
+def longestPalindrome(s, solution=''):
+    if len(solution)>=len(s):
+        return solution
+    else:
+        for i in range(len(s)):
+          test = s[i:]
+          if test == test[::-1] and len(test)>len(solution):
+            return longestPalindrome(s[:-1], test)
+        return longestPalindrome(s[:-1], solution)
