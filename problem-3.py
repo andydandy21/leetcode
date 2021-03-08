@@ -15,3 +15,19 @@ class Solution:
             count = (len(mylist) if len(mylist) > count else count)
             if count == max_length: break  
         return count
+
+
+# Recursive Solution
+def recursiveSolution(s, solution=0):
+  if solution >= len(set(s)):
+    return solution
+  else:
+    for i in range(len(s)):
+      if len(s[i:])<=len(set(s[i:])):
+        solution = max(solution,len(s[i:]))
+        break
+    return recursiveSolution(s[:-1], solution)
+
+class Solution:
+    def lengthOfLongestSubstring(self, s: str) -> int:        
+        return recursiveSolution(s)
